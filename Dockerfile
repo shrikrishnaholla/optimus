@@ -3,8 +3,9 @@
 FROM        node
 MAINTAINER  Shrikrishna Holla
 
-RUN         git clone https://github.com/pesos/optimus.git /home/optimus
-WORKDIR     /home/optimus
+COPY        package.json /
 RUN         npm install
+COPY        . /home/optimus
+WORKDIR     /home/optimus
 
 CMD         ["/usr/local/bin/npm", "start"]
